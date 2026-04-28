@@ -1,0 +1,1009 @@
+/* ===================================================
+   LUXOR TRAVEL — Hlavný CSS súbor
+   Téma: Tmavá / Elegantná
+   =================================================== */
+
+/* --- CSS Premenné (farebná schéma) --- */
+:root {
+  --bs-primary: #c9a84c;
+  --bs-primary-rgb: 201, 168, 76;
+
+  --gold:        #c9a84c;
+  --gold-light:  #e8c96b;
+  --gold-dark:   #a0793a;
+  --dark-bg:     #0d0d0d;
+  --dark-card:   #161616;
+  --dark-card2:  #1e1e1e;
+  --dark-border: #2a2a2a;
+  --text-main:   #e8e0d0;
+  --text-muted:  #888;
+  --white:       #ffffff;
+}
+
+/* --- Základné štýly --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-main);
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* --- Vlastná scrollbar --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--dark-bg); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+/* ===================================================
+   NAVIGÁCIA
+   =================================================== */
+.navbar {
+  background: rgba(13, 13, 13, 0.95) !important;
+  border-bottom: 1px solid var(--dark-border);
+  backdrop-filter: blur(12px);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+body.dark-off .navbar {
+  background: rgba(245, 240, 232, 0.95) !important;
+}
+
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold) !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.navbar-brand span {
+  color: var(--text-main);
+  font-weight: 300;
+}
+
+.nav-link {
+  color: var(--text-muted) !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.5rem 1.2rem !important;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.2rem;
+  right: 1.2rem;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold) !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.navbar-toggler {
+  border-color: var(--gold-dark) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(201,168,76,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+#dark-toggle {
+  background: transparent !important;
+  border: 1px solid var(--dark-border) !important;
+  color: var(--gold) !important;
+  padding: 0.4rem 0.7rem !important;
+  transition: all 0.3s ease;
+}
+
+/* ===================================================
+   HERO SEKCIA
+   =================================================== */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.6) 50%, rgba(0,0,0,0.85) 100%),
+              url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1600&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to top, var(--dark-bg), transparent);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: rgba(232, 224, 208, 0.75);
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--dark-bg);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 0;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  transition: left 0.35s ease;
+}
+
+.btn-gold:hover::before { left: 0; }
+.btn-gold span { position: relative; z-index: 1; }
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 0.95rem 2.5rem;
+  border: 1px solid var(--gold);
+  border-radius: 0;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.35s ease;
+}
+
+.btn-outline-gold:hover {
+  background: var(--gold);
+  color: var(--dark-bg);
+}
+
+/* Hero stats */
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--dark-border);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* ===================================================
+   SEKCIA — NADPISY
+   =================================================== */
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.section-divider {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  margin-bottom: 1.5rem;
+}
+
+/* ===================================================
+   O NÁS SEKCIA (index)
+   =================================================== */
+.about-section {
+  background: var(--dark-bg);
+  padding: 6rem 0;
+}
+
+.about-img-wrap {
+  position: relative;
+}
+
+.about-img-wrap img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.1);
+}
+
+.about-img-wrap::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid var(--gold-dark);
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.about-img-wrap img { position: relative; z-index: 1; }
+
+/* ===================================================
+   KARTY — DESTINÁCIE
+   =================================================== */
+.destinations-section {
+  background: var(--dark-card);
+  padding: 6rem 0;
+}
+
+.dest-card {
+  background: var(--dark-card2);
+  border: 1px solid var(--dark-border);
+  border-radius: 0;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  height: 100%;
+}
+
+.dest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(201, 168, 76, 0.12);
+  border-color: var(--gold-dark);
+}
+
+.dest-card .ratio img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+  filter: brightness(0.8);
+}
+
+.dest-card:hover .ratio img {
+  transform: scale(1.05);
+  filter: brightness(0.9);
+}
+
+.dest-card .card-body {
+  background: var(--dark-card2);
+  padding: 1.5rem;
+}
+
+.dest-card .card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.dest-card .card-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--gold);
+  color: var(--dark-bg);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  z-index: 10;
+}
+
+.dest-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-top: 0.75rem;
+  display: block;
+}
+
+/* ===================================================
+   CAROUSEL
+   =================================================== */
+.gallery-section {
+  background: var(--dark-bg);
+  padding: 6rem 0;
+}
+
+.carousel-item img {
+  height: 550px;
+  object-fit: cover;
+  filter: brightness(0.75);
+}
+
+.carousel-caption {
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 2rem 2rem;
+  text-align: left;
+}
+
+.carousel-caption h5 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 60px;
+  opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(201, 168, 76, 0.3);
+  padding: 1.5rem;
+  border: 1px solid var(--gold-dark);
+  border-radius: 0;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: var(--gold);
+  width: 30px;
+  height: 2px;
+  border: none;
+  opacity: 0.4;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  width: 50px;
+}
+
+/* ===================================================
+   CALL TO ACTION
+   =================================================== */
+.cta-section {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1200 50%, #0d0d0d 100%);
+  padding: 7rem 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--dark-border);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ===================================================
+   FOOTER
+   =================================================== */
+footer {
+  background: #080808;
+  border-top: 1px solid var(--dark-border);
+  padding: 4rem 0 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.footer-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  max-width: 280px;
+}
+
+.footer-heading {
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li { margin-bottom: 0.6rem; }
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.footer-contact-item i {
+  color: var(--gold);
+  font-size: 0.9rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.footer-divider {
+  border-color: var(--dark-border);
+  margin: 2rem 0 1.5rem;
+}
+
+.footer-copyright {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+}
+
+/* ===================================================
+   STRÁNKA O NÁS
+   =================================================== */
+.page-hero {
+  min-height: 50vh;
+  background: linear-gradient(135deg, rgba(13,13,13,0.9), rgba(13,13,13,0.7)),
+              url('https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1600&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.page-hero-kontakt {
+  background-image: linear-gradient(135deg, rgba(13,13,13,0.9), rgba(13,13,13,0.7)),
+                    url('https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1600&q=80');
+}
+
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--white);
+}
+
+.content-section {
+  background: var(--dark-bg);
+  padding: 6rem 0;
+}
+
+.content-section p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+/* Figcaption */
+figure {
+  margin: 0;
+}
+
+figure img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+figcaption {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+/* Accordion */
+.accordion-item {
+  background: var(--dark-card2) !important;
+  border: 1px solid var(--dark-border) !important;
+  border-radius: 0 !important;
+  margin-bottom: 0.5rem;
+}
+
+.accordion-button {
+  background: var(--dark-card2) !important;
+  color: var(--text-main) !important;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.25rem 1.5rem;
+}
+
+.accordion-button::after {
+  filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg);
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--gold) !important;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.accordion-body {
+  background: var(--dark-card) !important;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  padding: 1.25rem 1.5rem;
+}
+
+/* Team/values */
+.value-item {
+  padding: 2rem;
+  border: 1px solid var(--dark-border);
+  border-top: 3px solid var(--gold);
+  background: var(--dark-card2);
+  transition: transform 0.3s ease;
+}
+
+.value-item:hover { transform: translateY(-4px); }
+
+.value-icon {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.value-item h5 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.value-item p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ===================================================
+   KONTAKTNÁ STRÁNKA — FORMULÁR
+   =================================================== */
+.contact-section {
+  background: var(--dark-bg);
+  padding: 6rem 0;
+}
+
+.contact-form-wrap {
+  background: var(--dark-card2);
+  border: 1px solid var(--dark-border);
+  padding: 3rem;
+}
+
+.form-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+  background: var(--dark-card) !important;
+  border: 1px solid var(--dark-border) !important;
+  color: var(--text-main) !important;
+  border-radius: 0 !important;
+  padding: 0.85rem 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control::placeholder { color: #444 !important; }
+.form-select option { background: var(--dark-card); }
+
+/* Validácia — :focus */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.15) !important;
+  outline: none;
+}
+
+/* Validácia — :valid */
+.form-control:not(:placeholder-shown):valid {
+  border-color: #4caf50 !important;
+}
+
+/* Validácia — :invalid (len po interakcii) */
+.form-control:not(:focus):not(:placeholder-shown):invalid,
+.form-select:not(:focus):not(:placeholder-shown):invalid {
+  border-color: #e53935 !important;
+}
+
+/* invalid-hint */
+.invalid-hint {
+  display: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  color: #e53935;
+  margin-top: 0.35rem;
+  letter-spacing: 0.5px;
+}
+
+.form-control:not(:focus):not(:placeholder-shown):invalid ~ .invalid-hint {
+  display: block;
+}
+
+/* Fieldset */
+fieldset {
+  border: 1px solid var(--dark-border) !important;
+  padding: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+legend {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem !important;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold) !important;
+  padding: 0 0.5rem !important;
+  float: none !important;
+  width: auto !important;
+}
+
+/* Checkbox / Radio */
+.form-check-input {
+  background-color: var(--dark-card) !important;
+  border-color: var(--dark-border) !important;
+  border-radius: 0 !important;
+}
+
+.form-check-input:checked {
+  background-color: var(--gold) !important;
+  border-color: var(--gold) !important;
+}
+
+.form-check-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Kontaktné info */
+.contact-info-wrap {
+  padding: 3rem;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.contact-info-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid var(--gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.contact-info-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.contact-info-value {
+  color: var(--text-main);
+  font-size: 1rem;
+}
+
+/* Toast */
+.toast {
+  background: var(--dark-card2) !important;
+  border: 1px solid var(--gold-dark) !important;
+  border-radius: 0 !important;
+  color: var(--text-main) !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+}
+
+.toast-header {
+  background: rgba(201,168,76,0.15) !important;
+  color: var(--gold) !important;
+  border-bottom: 1px solid var(--dark-border) !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+/* Modal */
+.modal-content {
+  background: var(--dark-card2) !important;
+  border: 1px solid var(--dark-border) !important;
+  border-radius: 0 !important;
+  color: var(--text-main) !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--dark-border) !important;
+  padding: 1.5rem 2rem;
+}
+
+.modal-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.5rem !important;
+  color: var(--white) !important;
+}
+
+.modal-body { padding: 2rem; }
+
+.modal-footer {
+  border-top: 1px solid var(--dark-border) !important;
+  padding: 1rem 2rem;
+}
+
+.btn-close {
+  filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) opacity(0.6);
+}
+
+/* ===================================================
+   ANIMÁCIE — @keyframes
+   =================================================== */
+
+/* FadeIn hore */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse efekt pre CTA tlačidlo */
+@keyframes goldPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4); }
+  70%  { box-shadow: 0 0 0 15px rgba(201, 168, 76, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
+}
+
+/* Shimmer pre zlatú čiaru */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* FadeIn pri načítaní */
+.fade-in {
+  animation: fadeInUp 0.7s ease forwards;
+  opacity: 0;
+}
+
+.fade-in-1 { animation-delay: 0.1s; }
+.fade-in-2 { animation-delay: 0.25s; }
+.fade-in-3 { animation-delay: 0.4s; }
+.fade-in-4 { animation-delay: 0.55s; }
+
+/* Pulse na CTA tlačidle */
+.btn-pulse {
+  animation: goldPulse 2.5s infinite;
+}
+
+/* Shimmer zlatá čiara */
+.gold-shimmer {
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  height: 2px;
+  margin: 1rem 0 2rem;
+}
+
+/* Dark mode */
+body.dark-off {
+  --dark-bg: #f5f0e8;
+  --dark-card: #ede8df;
+  --dark-card2: #e8e3da;
+  --dark-border: #d0c8bb;
+  --text-main: #1a1a1a;
+  --text-muted: #555;
+  --white: #111;
+}
+
+/* Light mode overrides for hero section */
+body.dark-off .hero {
+  background: linear-gradient(135deg, rgba(245,240,232,0.85) 0%, rgba(245,240,232,0.6) 50%, rgba(200,195,185,0.85) 100%),
+              url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1600&q=80') center/cover no-repeat;
+}
+
+/* Light mode overrides for CTA section */
+body.dark-off .cta-section {
+  background: linear-gradient(135deg, #f5f0e8 0%, #e5dccf 50%, #f5f0e8 100%);
+}
+
+/* Light mode overrides for footer */
+body.dark-off footer {
+  background: #f0e8dc;
+}
+
+/* Light mode overrides for page hero */
+body.dark-off .page-hero {
+  background: linear-gradient(135deg, rgba(245,240,232,0.9), rgba(245,240,232,0.7)),
+              url('https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1600&q=80') center/cover no-repeat;
+}
+
+body.dark-off .page-hero-kontakt {
+  background-image: linear-gradient(135deg, rgba(245,240,232,0.9), rgba(245,240,232,0.7)),
+                    url('https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1600&q=80');
+}
+
+/* ===================================================
+   UTILITY
+   =================================================== */
+.text-gold { color: var(--gold) !important; }
+.bg-dark-card { background: var(--dark-card) !important; }
+
+/* Responzívne úpravy */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 3rem; }
+  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+  .contact-form-wrap,
+  .contact-info-wrap { padding: 1.5rem; }
+  .about-img-wrap::before { display: none; }
+}
+
+@media (min-width: 992px) {
+  .about-img-wrap img { height: 540px; }
+}

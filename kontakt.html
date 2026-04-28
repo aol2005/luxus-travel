@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kontakt — Luxor Travel. Napíšte nám, zavolajte alebo navštívte našu kanceláriu v Bratislave. Bezplatná konzultácia do 24 hodín.">
+  <title>Kontakt — Luxor Travel</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- NAVIGÁCIA -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="index.html">LUXOR <span>TRAVEL</span></a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false"
+              aria-label="Otvoriť navigáciu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Domov</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#destinácie">Destinácie</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#galéria">Galéria</a></li>
+          <li class="nav-item"><a class="nav-link" href="o-nas.html">O nás</a></li>
+          <li class="nav-item"><a class="nav-link active" href="kontakt.html">Kontakt</a></li>
+          <li class="nav-item ms-2">
+            <button id="dark-toggle" class="btn btn-sm">
+              <i class="bi bi-sun-fill"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero page-hero-kontakt" style="padding-top:80px;">
+      <div class="container py-5">
+        <div class="py-4">
+          <span class="hero-eyebrow">Sme tu pre vás</span>
+          <h1 class="fade-in fade-in-1">Kontaktujte nás</h1>
+          <p class="hero-subtitle fade-in fade-in-2">
+            Bezplatná konzultácia, odpoveď do 24 hodín, osobný prístup od prvého kontaktu.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKTNÁ SEKCIA -->
+    <section class="contact-section">
+      <div class="container">
+
+        <div class="row g-5">
+
+          <!-- FORMULÁR -->
+          <div class="col-12 col-lg-7">
+            <div class="contact-form-wrap">
+
+              <span class="section-label">Napíšte nám</span>
+              <h2 class="section-title mb-1">Nezáväzná konzultácia</h2>
+              <div class="section-divider"></div>
+
+              <form id="contact-form" action="#" method="post" novalidate>
+
+                <!-- FIELDSET 1 — Osobné údaje -->
+                <fieldset>
+                  <legend>Vaše údaje</legend>
+
+                  <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                      <div class="mb-3">
+                        <label for="meno" class="form-label">Meno a priezvisko *</label>
+                        <input type="text" class="form-control" id="meno" name="meno"
+                               required minlength="3"
+                               placeholder="Oleksandr Alekseienko">
+                        <span class="invalid-hint">Zadajte aspoň 3 znaky.</span>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <div class="mb-3">
+                        <label for="email" class="form-label">E-mailová adresa *</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                               required
+                               placeholder="sany.milosss@email.com">
+                        <span class="invalid-hint">Zadajte platný e-mail.</span>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <div class="mb-3">
+                        <label for="telefon" class="form-label">Telefónne číslo</label>
+                        <input type="tel" class="form-control" id="telefon" name="telefon"
+                               pattern="[0-9+\s]{9,15}"
+                               placeholder="+421 901 234 567">
+                        <span class="invalid-hint">Zadajte platné tel. číslo (9–15 znakov).</span>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <div class="mb-3">
+                        <label for="pocet-osob" class="form-label">Počet cestujúcich</label>
+                        <input type="number" class="form-control" id="pocet-osob" name="pocet-osob"
+                               min="1" max="50"
+                               placeholder="2">
+                      </div>
+                    </div>
+                  </div>
+
+                </fieldset>
+
+                <!-- FIELDSET 2 — Zájazdz -->
+                <fieldset>
+                  <legend>Zájazdz a správa</legend>
+
+                  <div class="mb-3">
+                    <label for="destinácia" class="form-label">Záujemca o destináciu</label>
+                    <select class="form-select" id="destinácia" name="destinácia" required>
+                      <option value="">— Vyberte destináciu —</option>
+                      <option value="grecko">Grécko — Santorini, Mykonos</option>
+                      <option value="japonsko">Japonsko — Tokio, Kjóto</option>
+                      <option value="maldivy">Maldivy — Luxusné ostrovy</option>
+                      <option value="maroko">Maroko — Marrakéš, Fez</option>
+                      <option value="norsko">Nórsko — Fjordy a Severnú žiara</option>
+                      <option value="ine">Iná destinácia (opíšte v správe)</option>
+                    </select>
+                  </div>
+
+                  <!-- Typ zájazdzu s podmienkou -->
+                  <div class="mb-3">
+                    <label class="form-label d-block">Typ zájazdzu</label>
+                    <div class="d-flex gap-4 flex-wrap mt-1">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio"
+                               name="typ" id="typ-skupinovy" value="skupinovy" checked>
+                        <label class="form-check-label" for="typ-skupinovy">Skupinový zájazdz</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio"
+                               name="typ" id="typ-individualny" value="individualny">
+                        <label class="form-check-label" for="typ-individualny">Individuálny zájazdz</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio"
+                               name="typ" id="typ-firemny" value="firemny">
+                        <label class="form-check-label" for="typ-firemny">Firemný / MICE</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Podmienená sekcia — dátum pre individuálny -->
+                  <div id="individualna-skupina" style="display:none;" class="mb-3">
+                    <label for="datum-odchodu" class="form-label">Preferovaný dátum odchodu</label>
+                    <input type="date" class="form-control" id="datum-odchodu" name="datum-odchodu">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="sprava" class="form-label">Vaša správa *</label>
+                    <textarea class="form-control" id="sprava" name="sprava"
+                              rows="5" required minlength="20"
+                              maxlength="500"
+                              placeholder="Opíšte nám vaše predstavy o dovolenke — destináciu, termín, rozpočet, špeciálne požiadavky..."></textarea>
+                    <small id="char-counter" class="text-muted" style="font-family:'Montserrat',sans-serif; font-size:0.72rem;">Zostáva: 500 znakov</small>
+                    <span class="invalid-hint">Správa musí mať aspoň 20 znakov.</span>
+                  </div>
+
+                  <div class="mb-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox"
+                             id="suhlas" name="suhlas" required>
+                      <label class="form-check-label" for="suhlas">
+                        Súhlasím so spracovaním osobných údajov v súlade s
+                        <a href="#" style="color:var(--gold);">GDPR podmienkami</a>. *
+                      </label>
+                    </div>
+                  </div>
+
+                </fieldset>
+
+                <button type="submit" class="btn-gold w-100">
+                  <span><i class="bi bi-send me-2"></i>Odoslať správu</span>
+                </button>
+
+              </form>
+
+            </div>
+          </div>
+
+          <!-- KONTAKTNÉ INFO -->
+          <div class="col-12 col-lg-5">
+            <div class="contact-info-wrap">
+
+              <span class="section-label">Kde nás nájdete</span>
+              <h2 class="section-title mb-1">Kontaktné údaje</h2>
+              <div class="section-divider"></div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div>
+                  <span class="contact-info-label">Adresa</span>
+                  <span class="contact-info-value">
+                    Hlavná 15, 811 01 Bratislava<br>
+                    <small style="color:var(--text-muted); font-size:0.85rem;">2. poschodie, kancelária č. 208</small>
+                  </span>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="bi bi-telephone-fill"></i>
+                </div>
+                <div>
+                  <span class="contact-info-label">Telefón</span>
+                  <span class="contact-info-value">
+                    +421 2 5544 6600<br>
+                    <small style="color:var(--text-muted); font-size:0.85rem;">Po–Pia: 9:00 – 18:00</small>
+                  </span>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="bi bi-envelope-fill"></i>
+                </div>
+                <div>
+                  <span class="contact-info-label">E-mail</span>
+                  <span class="contact-info-value">info@luxortravel.sk</span>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i class="bi bi-clock-fill"></i>
+                </div>
+                <div>
+                  <span class="contact-info-label">Otváracie hodiny</span>
+                  <span class="contact-info-value">
+                    Pondelok – Piatok: 9:00 – 18:00<br>
+                    Sobota: 10:00 – 14:00<br>
+                    Nedeľa: zatvorené
+                  </span>
+                </div>
+              </div>
+
+              <!-- Doplnkové info -->
+              <div style="background:rgba(201,168,76,0.07); border:1px solid rgba(201,168,76,0.2); padding:1.5rem; margin-top:1rem;">
+                <p style="color:var(--text-muted); font-size:0.9rem; margin:0;">
+                  <i class="bi bi-info-circle text-gold me-2"></i>
+                  Na každú správu odpovedáme <strong style="color:var(--gold);">do 24 hodín</strong>. Prvá konzultácia je vždy bezplatná a nezáväzná.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div><!-- /.row -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <span class="footer-brand">Luxor Travel</span>
+          <p class="footer-desc">Prémiová cestovná agentúra s osobným prístupom. Pomáhame vám objavovať svet od roku 2012.</p>
+        </div>
+        <div class="col-12 col-md-2 col-lg-2 offset-lg-1">
+          <p class="footer-heading">Navigácia</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Domov</a></li>
+            <li><a href="index.html#destinácie">Destinácie</a></li>
+            <li><a href="o-nas.html">O nás</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-3">
+          <p class="footer-heading">Destinácie</p>
+          <ul class="footer-links">
+            <li><a href="#">Grécko</a></li>
+            <li><a href="#">Japonsko</a></li>
+            <li><a href="#">Maldivy</a></li>
+            <li><a href="#">Maroko</a></li>
+            <li><a href="#">Nórsko</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-3">
+          <p class="footer-heading">Kontakt</p>
+          <div class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <span>Hlavná 15, 811 01 Bratislava</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <span>+421 2 5544 6600</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <span>info@luxortravel.sk</span>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <p class="footer-copyright mb-0">&copy; 2025 Luxor Travel s.r.o. — Všetky práva vyhradené</p>
+        <p class="footer-copyright mb-0">Člen SACKA · Licencia CK-2024-0018</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST — potvrdenie odoslania -->
+  <div class="position-fixed bottom-0 end-0 p-4" style="z-index:1100;">
+    <div id="confirmToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <i class="bi bi-check-circle-fill me-2" style="color:var(--gold);"></i>
+        <strong class="me-auto">Luxor Travel</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Zatvoriť"></button>
+      </div>
+      <div class="toast-body">
+        ✅ Vaša správa bola úspešne odoslaná! Ozveme sa do 24 hodín.
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
